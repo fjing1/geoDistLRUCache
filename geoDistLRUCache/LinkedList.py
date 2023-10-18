@@ -1,11 +1,14 @@
-from Node import node
+from Node import Node
+
 
 class LinkedList:
     """
     Linked List. Represents usage history of cache items
     """
-    head: Optional[Node] = None
-    tail: Optional[Node] = None
+
+    def __init__(self):
+        self.head = None
+        self.tail = None
 
     def add_to_head(self, item: Node) -> None:
         """
