@@ -1,15 +1,10 @@
+import time
 from collections import OrderedDict
 from typing import Dict, Optional
-from node import Node
-from node import LinkedList
+from Node import Node
+from LinkedList import LinkedList
 
 class LRUCache:
-    """
-    Problem Link: https://leetcode.com/problems/lru-cache/
-    Complexity: Medium
-    Runtime: 1008 ms
-    Memory: 74.1MB
-    """
 
     capacity: int
     cache_map: Dict[int, Node]
@@ -21,9 +16,7 @@ class LRUCache:
         self.history = LinkedList()
 
     def get(self, key: int) -> int:
-        """
-        Retrieve value by its key or -1 otherwise
-        """
+        # Retrieve value by its key or -1 otherwise
         if key not in self.cache_map:
             return -1
 
@@ -36,13 +29,13 @@ class LRUCache:
 
         return value_node.value
 
-    def put(self, key: int, value: int) -> None:
+    def put(self, key: int, value: int, expiry_time: int) -> None:
         """
         Add a new key-value pair to the cache.
         If key exists, replace its value by a new one.
         If capacity is reached, evict the LRU item and insert a new pair
         """
-        value_node: Node = Node(key, value)
+        value_node: Node = Node(key, value, time.time() + expiry_time) # in seconds
 
         if key in self.cache_map:
             self.remove_item(self.cache_map[key])
@@ -54,10 +47,15 @@ class LRUCache:
         self.history.add_to_head(value_node)
         self.cache_map[key] = value_node
 
+    def remove_expired_items(self) -> None:
+        # Remove expired items from the cache
+        current_time = time.time()
+
+        for node in list(self.cache_map.values()):
+            if node.expiry_time < current_time:
+                self.remove_item(node)
+
     def evict_least_recent_item(self) -> None:
-        """
-        Evict the least recently used item
-        """
         lru_item: Node = self.history.tail
 
         if lru_item is None:
