@@ -5,10 +5,11 @@ class Replication:
 
     def put(self, key, value, expiry_time):
         self.cache.put(key, value, expiry_time)
-        self.network.send_data(key, value)
 
         # Replicate the data to all secondary nodes
         for node in self.network.nodes:
+            # Iterate all the nodes
+            self.network.send_data(key, value)
             if node != self.primary_node:
                 # Here we assume that `send_data` sends a request to the node
                 # to perform the write operation. You might need to modify this
