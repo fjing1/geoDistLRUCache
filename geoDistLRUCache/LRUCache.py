@@ -15,6 +15,7 @@ class LRUCache:
         self.cache_map = {}
         self.history = LinkedList()
 
+
     def get(self, key: int) -> int:
         # Retrieve value by its key or -1 otherwise
         if key not in self.cache_map:

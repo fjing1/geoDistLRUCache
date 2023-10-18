@@ -3,6 +3,6 @@ class Replication:
         self.cache = cache
         self.network = network
 
-    def put(self, key, value):
-        self.cache.put(key, value)
+    def put(self, key, value, expiry_time):
+        self.cache.put(key, value, expiry_time)
         self.network.send_data(key, value)
