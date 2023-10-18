@@ -17,7 +17,8 @@ items in the cache, remove expired items, evict the least recently used item, an
 The Network class is responsible for network communications between different nodes in your system.
 
 ### Replication Class
-The Replication class is responsible for managing the replication of data across different nodes.
+The Replication class is responsible for managing the replication of data across different nodes. I intend to use
+the primary-secondary replication here. When the primary is not available, the secondary replicas can be available.
 
 ## Missing functionalities
 There are many functionalities that I didnt implement, including but not limited to following
