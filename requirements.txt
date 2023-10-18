@@ -1,5 +1,5 @@
 packaging
 cache
-collections
+collection
 network
 unittest
