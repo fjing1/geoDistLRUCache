@@ -1,4 +1,4 @@
-####TECHNICAL TEST 
+#### This is a take home TECHNICAL TEST I had during interview. I found this is extremely useful and good topic. After I completed and received the 2nd round interview on Nov 1st, I decide to add more function into it. So it become a personal project starting on 2023 Nov 1st. 
 
   
 
@@ -37,3 +37,7 @@ At Ormuco, we want to optimize every bits of software we write. Your goal is to 
 As a hint, we are not looking for quantity, but rather quality, maintainability, scalability, testability and a code that you can be proud of.  
 
 When submitting your code add the necessary documentation to explain your overall design and missing functionalities.  Do it to the best of your knowledge. 
+
+
+On Nov 1st, I added the check consistency for the replication part in replication.py and main.py, the idea I had is for multiple secondary database or cache available, pick the highest consistent ones. 
+In the future, I am thinking adding a manager to coordinate the secondary picks.
