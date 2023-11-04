@@ -41,3 +41,5 @@ When submitting your code add the necessary documentation to explain your overal
 
 On Nov 1st, I added the check consistency for the replication part in replication.py and main.py, the idea I had is for multiple secondary database or cache available, pick the highest consistent ones. 
 In the future, I am thinking adding a manager to coordinate the secondary picks.
+
+Nov 4th, distributed operating system would be a use case for such caching. Adding an issue for this. 
